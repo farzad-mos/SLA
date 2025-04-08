@@ -1,0 +1,22 @@
+
+>> sys = arima(15,0,0);
+>> 
+>> Md1 = estimate(sys,sla.sla_sa);
+ 
+    ARIMA(15,0,0) Model (Gaussian Distribution):
+
+>> [ARIMA_Close1,~,Loglikehood] = estimate(sys,sla.sla_sa);
+ 
+    ARIMA(15,0,0) Model (Gaussian Distribution):
+
+
+
+>> residual = infer(ARIMA_Close1,sla.sla_sa);
+>> prediction = sla.sla_sa + residual;
+>> plot(sla.date_sa,sla.sla_sa)
+>> hold on
+>> plot(sla.date_sa,prediction)
+>> residual = infer(ARIMA_Close1,sla_tg);
+>> prediction = sla_tg + residual;
+>> plot(tg_sla.date_tg,prediction)
+>> plot(tg_sla.date_tg,sla_tg)
